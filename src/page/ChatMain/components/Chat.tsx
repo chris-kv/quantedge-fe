@@ -1,6 +1,6 @@
 import React from "react";
 import TextBox from "../../../component/TextBox/TextBox";
-import Messge from "./messge";
+import Messge from "./Messge";
 
 const Chat = () => {
   const sampleData = [

@@ -3,7 +3,7 @@ import SummaryRootLayout from "./components/SummaryRootLayout";
 
 const ChatMain = () => {
   return (
-    <section className="grid grid-cols-2 gap-4 pt-4 mx-12 bg-[#090909] ">
+    <section className="grid grid-cols-2 gap-12 pt-4 px-16 bg-[#090909] ">
       <div className=" bg-[#101011] text-white">
         <Chat />
       </div>
