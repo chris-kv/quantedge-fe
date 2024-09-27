@@ -4,7 +4,7 @@ import Stratergy from "./page/Stratergy/Stratergy";
 function App() {
   return (
     <>
-      <section>
+      <section className="bg-[#090909]">
         <div>
           <Stratergy />
         </div>

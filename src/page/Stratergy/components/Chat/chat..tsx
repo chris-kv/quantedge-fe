@@ -1,4 +1,5 @@
 import { Lightbulb021 } from "../../../../assets/icons/Lightbulb021";
+import { ArrowNarrowRight1 } from "../../../../assets/icons/ArrowNarrowRight1";
 import cx from "classnames";
 
 // Chat component
@@ -148,108 +149,27 @@ const Chat = () => {
   ];
 
   return (
-    <div className="relative h-[965px]">
-      <div className="absolute w-[691px] h-[684px] top-[140px] left-0">
-        <div className="flex flex-col w-[691px] h-[684px] items-end gap-[25px] pt-8 pb-14 px-14 absolute top-0 left-0 overflow-auto">
+    <div className="relative  bg-[#101011]">
+      <div className=" w-[691px] h-full left-0">
+        <div className="flex flex-col w-[691px]  h-[70vh] items-end gap-[25px] pt-8 pb-14 px-14 overflow-auto">
           {sampleData.map((item, index) => (
             <div
               className={cx(
-                "flex items-start gap-6 relative self-stretch w-full flex-[0_0_auto] ",
-                {
-                  "flex-row-reverse": item.author === "User",
-                }
+                "flex items-start gap-6 relative self-stretch w-full flex-[0_0_auto] "
               )}
+              key={item.id}
             >
-              <div className="relative w-8 h-8 bg-[#6e40ff] rounded-[47px]" />
+              <div
+                className={cx("relative w-8 h-8  rounded-[47px]", {
+                  "bg-[#6e40ff]": item.author === "Bot",
+                  "bg-[#40ffa0]": item.author !== "Bot",
+                })}
+              />
               <p className="relative flex-1 mt-[-1.00px] [font-family:'Manrope',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-                Hello! Ready to create a new trading strategy? You can enter
-                your entire strategy, and I’ll validate it for you.
+                {item.content}
               </p>
             </div>
           ))}
-
-          <div className="flex items-start gap-6 relative self-stretch w-full flex-[0_0_auto]">
-            <div className="relative w-8 h-8 bg-[#26292e] rounded-[47px]" />
-            <p className="relative flex-1 mt-[-1.00px] [font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-              Buy when the 50-day MA crosses the 200-day MA. Sell when RSI is
-              over 70. Set stop-loss at 50%.Risk 2% of capital.
-            </p>
-          </div>
-          <div className="flex items-start gap-6 relative self-stretch w-full flex-[0_0_auto]">
-            <div className="relative w-8 h-8 bg-[#6e40ff] rounded-[47px]" />
-            <div className="flex flex-col items-start gap-6 relative flex-1 grow">
-              <p className="relative self-stretch mt-[-1.00px] [font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-                Let me check the strategy you provided. Here’s what I’ve found
-                so far:
-                <br />
-                Entry Condition: Buy when the 50-day MA crosses above the
-                200-day MA – looks good!
-                <br />
-                Exit Condition: Sell when RSI exceeds 70 – validated!
-                <br />
-                Stop-Loss: Set at 50% – this is quite high and may expose you to
-                excessive risk. Consider adjusting it to 5-10%.
-                <br />
-                Risk Management: Risking 2% of capital per trade – looks good!
-              </p>
-              <div className="flex flex-col items-start gap-2 relative self-stretch w-full flex-[0_0_auto]">
-                <div className="flex flex-col items-start gap-3.5 p-3 relative self-stretch w-full flex-[0_0_auto] bg-[#17181a] rounded-[var(--primitives-radius-radius-1)]">
-                  <div className="flex items-start gap-3.5 relative self-stretch w-full flex-[0_0_auto]">
-                    <div className="flex items-start gap-2.5 relative flex-1 grow">
-                      <div className="inline-flex items-center gap-2.5 p-2 relative flex-[0_0_auto] bg-[#2c2c2e] rounded">
-                        <Lightbulb021 className="!relative !w-3.5 !h-3.5" />
-                      </div>
-                      <div className="flex flex-col items-start gap-3">
-                        <p className="relative self-stretch [font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-                          <span className="[font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-                            But I noticed a couple of things missing:
-                            <br />
-                          </span>
-                        </p>
-                        <p className="relative self-stretch [font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-                          <span className="[font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-                            You didn’t specify a take-profit level. Would you
-                            like to add that now?
-                            <br />
-                          </span>
-                        </p>
-                        <p className="relative self-stretch [font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-                          <span className="[font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-                            You didn’t provide a position size. How many shares
-                            or units do you want to trade?
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-start gap-6 relative self-stretch w-full flex-[0_0_auto] mb-[-56.00px]">
-            <div className="relative w-8 h-8 bg-[#6e40ff] rounded-[47px]" />
-            <div className="flex flex-col items-start gap-6 relative flex-1 grow">
-              <p className="relative self-stretch mt-[-1.00px] [font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-sm tracking-[0] leading-[25.2px]">
-                Great! Here’s your updated strategy after validation:
-                <br />
-                Entry Condition: Buy when the 50-day MA crosses above the
-                200-day MA.
-                <br />
-                Exit Condition: Sell when RSI exceeds 70.
-                <br />
-                Stop-Loss: 5% – this is much safer!
-                <br />
-                Take-Profit: 10% above the entry price.
-                <br />
-                Risk Management: Risking 2% of your total capital per trade.
-                <br />
-                Position Size: 100 shares.
-                <br />
-                Everything looks good now! Here’s your full strategy
-                summary.&#34;
-              </p>
-            </div>
-          </div>
         </div>
         <img
           className="absolute w-[691px] h-px top-0 left-0 object-cover"
@@ -257,8 +177,25 @@ const Chat = () => {
           src="/img/vector-1.svg"
         />
       </div>
-      <div className="absolute w-full top-[88px] left-[60px] [font-family:'Inter',Helvetica] font-semibold text-white text-lg tracking-[0] leading-[32.4px] whitespace-nowrap ">
-        AI Copilot
+      <div className="flex flex-col w-[691px] items-start gap-3 px-14 py-8 left-0 bg-[#101011]">
+        <div className="flex flex-col items-start justify-center gap-1.5 relative self-stretch w-full flex-[0_0_auto]">
+          <div className="flex flex-col items-start gap-1.5 relative self-stretch w-full flex-[0_0_auto]">
+            <div className="flex items-center gap-2 pl-6 pr-3 py-3 relative self-stretch w-full flex-[0_0_auto] bg-[#17181a] rounded-[78px] overflow-hidden border border-solid border-[#27282d] shadow-shadow-xs">
+              <input
+                type="text"
+                placeholder="Send a message to AI copilot"
+                className="flex-1 self-stretch font-[number:var(--text-md-regular-font-weight)] text-[#959597] bg-transparent outline-none text-[length:var(--text-md-regular-font-size)] leading-[var(--text-md-regular-line-height)] relative mt-[-1.00px] font-text-md-regular tracking-[var(--text-md-regular-letter-spacing)] [font-style:var(--text-md-regular-font-style)]"
+              />
+              {/* <p className="flex-1 self-stretch font-[number:var(--text-md-regular-font-weight)] text-[#959597] text-[length:var(--text-md-regular-font-size)] leading-[var(--text-md-regular-line-height)] relative mt-[-1.00px] font-text-md-regular tracking-[var(--text-md-regular-letter-spacing)] [font-style:var(--text-md-regular-font-style)]"></p> */}
+              <div className="inline-flex items-center gap-2.5 p-3 relative flex-[0_0_auto] bg-[#25272f] rounded-[52px]">
+                <ArrowNarrowRight1
+                  className="!relative !w-6 !h-6"
+                  color="#959597"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
