@@ -5,6 +5,10 @@ import { sampleData } from "../../../constants/mockData";
 
 const Chat = () => {
 
+  const handleSubmit = (message: string) => {
+    console.log('Message is: ', message);
+  };
+
   return (
     <div className="flex flex-col w-full h-[90vh]">
       <div className="text-xs font-medium border border-solid border-[#27282D] p-4">
@@ -16,7 +20,7 @@ const Chat = () => {
         ))}
       </div>
       <div className="w-full bg-[#17181A ]h-10">
-        <TextBox clasNames="w-12 h-12" />
+        <TextBox handleSubmit={handleSubmit} clasNames="w-12 h-12" />
       </div>
     </div>
   );
