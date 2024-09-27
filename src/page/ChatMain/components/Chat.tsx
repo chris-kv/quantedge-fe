@@ -4,14 +4,15 @@ import Message from "./Message";
 import { sampleData } from "../../../constants/mockData";
 import { io } from "socket.io-client";
 import { VITE_SOCKET_URL } from "../../../constants/env";
-import { chatHistoryAtom } from "../../../atoms";
+import { chatHistoryAtom, loadingAtom, summaryAtom } from "../../../atoms";
 import { useRecoilState } from "recoil";
 
 const Chat = () => {
   const chatContainerRef = React.useRef<HTMLDivElement>(null);
   const socket = React.useMemo(() => io(VITE_SOCKET_URL), []);
   const [chatList, setChatList] = useRecoilState(chatHistoryAtom);
-  const [loading, setLoading] = React.useState(false);
+  const [, setSummary] = useRecoilState(summaryAtom);
+  const [loading, setLoading] = useRecoilState(loadingAtom);
 
   const handleSubmit = (message: string) => {
     console.log("Message is: ", message);
@@ -31,6 +32,12 @@ const Chat = () => {
   useEffect(() => {
     // Listen for messages from the backend
     socket.on("receive-message", (data) => {
+      const jsonData = data?.message?.json_obj;
+
+    if (jsonData) {
+      setSummary(jsonData);
+    }
+
       setLoading(false);
       console.log("RECEIVED MESSAGE", data);
       // Add the backend's response to the chat
@@ -38,7 +45,7 @@ const Chat = () => {
         ...prevMessages,
         {
           type: "text",
-          content: data.message,
+          content: data?.message?.message,
           author: "Bot",
         },
       ]);
