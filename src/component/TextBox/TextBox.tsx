@@ -3,11 +3,13 @@ import { FC, useState } from "react";
 interface Props {
   clasNames?: string;
   background?: string;
+  isLoading?: boolean;
   handleSubmit: (message: string) => void;
 }
 const TextBox: FC<Props> = ({
   clasNames = "w-full h-full",
   background = "27282D",
+  isLoading = false,
   handleSubmit,
 }) => {
   const [inputValue, setInputValue] = useState("");
@@ -23,7 +25,8 @@ const TextBox: FC<Props> = ({
         type="text"
         value={inputValue}
         className="  w-full p-4 text-sm text-[#959597] bg-transparent outline-none  min-w-[500px] flex-1"
-        placeholder="Chat with AI..."
+        placeholder={isLoading ? "Loading...." : "Chat with AI..."}
+        disabled={isLoading}
         onChange={handleChange}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
@@ -34,6 +37,7 @@ const TextBox: FC<Props> = ({
       />
       <button
         className={`flex justify-center items-center m-4 p-3  rounded-full bg-[#575BC7] ${clasNames}`}
+        disabled={isLoading}
         onClick={() => {
           handleSubmit(inputValue);
           setInputValue("");
