@@ -2,17 +2,19 @@ import React, { useState, useMemo, useEffect } from "react";
 import SummaryCard from "../../../component/SummaryCard/SummaryCard";
 import Button from "../../../component/Button/Button";
 import cx from "classnames";
-import { backTestData } from "./sampleData";
 import {
   getBackTestData,
   getBackTestDataWithChart,
 } from "../../../util/service";
+import { summarySampleData } from "./sampleData";
 
 const fotmatValue = (value: number) => {
-  if (value > 0) {
-    return <span className="text-green-500">{value}</span>;
-  } else {
-    return <span className="text-red-500">{value}</span>;
+  if (value) {
+    if (value > 0) {
+      return <span className="text-green-500">{value}</span>;
+    } else {
+      return <span className="text-red-500">{value}</span>;
+    }
   }
   return "--";
 };
@@ -27,7 +29,7 @@ const SummaryRootLayout = () => {
   const summary = statergySummaryData?.results?.summary;
   const BackTestSampleData = [
     {
-      iconPath: "src/assets/icons/QuantEdge Keycode (1).png",
+      iconPath: "src/assets/icons/QuantEdge Keycode (3).png",
       title: "Overview",
       values: [
         {
@@ -96,6 +98,7 @@ const SummaryRootLayout = () => {
   ];
 
   const summaryData = useMemo(() => {
+    const statergySummaryData = summarySampleData;
     return [
       {
         iconPath: "src/assets/icons/QuantEdge Keycode (1).png",
@@ -179,7 +182,7 @@ const SummaryRootLayout = () => {
         ],
       },
     ];
-  }, [statergySummaryData]);
+  }, [summarySampleData]);
 
   useEffect(() => {
     if (selectedOption !== "SUMMARY") {
@@ -218,7 +221,7 @@ const SummaryRootLayout = () => {
           {summaryData.map((data, index) => {
             return (
               <SummaryCard
-                key={index}
+                key={data.title}
                 iconPath={data.iconPath}
                 title={data.title}
                 values={data.values}
@@ -231,7 +234,7 @@ const SummaryRootLayout = () => {
           {BackTestSampleData.map((data, index) => {
             return (
               <SummaryCard
-                key={index}
+                key={data.title}
                 iconPath={data.iconPath}
                 title={data.title}
                 values={data.values}
