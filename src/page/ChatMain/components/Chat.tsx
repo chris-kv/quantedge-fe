@@ -1,6 +1,6 @@
 import React from "react";
 import TextBox from "../../../component/TextBox/TextBox";
-import Messge from "./messge";
+import Message from "./Message";
 
 const Chat = () => {
   const sampleData = [
@@ -153,7 +153,7 @@ const Chat = () => {
       </div>
       <div className="flex-1 px-14 pt-8 h-[70vh] overflow-auto">
         {sampleData.map((item) => (
-          <Messge user={item.author} message={item.content} type={item.type} />
+          <Message user={item.author} message={item.content} type={item.type} />
         ))}
       </div>
       <div className="w-full bg-[#17181A ]h-10">
