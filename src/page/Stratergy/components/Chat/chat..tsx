@@ -1,21 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
+import './Chat.css';  // Custom CSS for styling the chat
 
-const socket = io('http://localhost:5000'); // Make sure this matches your backend server URL
+const socket = io('http://localhost:5000');  // Ensure this matches your backend
 
 const Chat: React.FC = () => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState<{ user: string; message: string }[]>([]);
+    const chatEndRef = useRef<HTMLDivElement>(null);
 
+    // Function to send message to backend and update local state
     const sendMessage = () => {
-        if (message) {
+        if (message.trim()) {
+            // Add client's message to the chat
+            setMessages((prevMessages) => [
+                ...prevMessages, 
+                { user: 'User', message }
+            ]);
+
+            // Send the message to the backend
             socket.emit('send-message', { user: 'User', message });
-            setMessage(''); // Clear input after sending
+
+            // Clear the input after sending
+            setMessage('');
         }
     };
 
     useEffect(() => {
+        // Listen for messages from the backend
         socket.on('receive-message', (data) => {
+            // Add the backend's response to the chat
             setMessages((prevMessages) => [...prevMessages, data]);
         });
 
@@ -24,23 +38,38 @@ const Chat: React.FC = () => {
         };
     }, []);
 
+    useEffect(() => {
+        // Scroll to the bottom when new messages are added
+        chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [messages]);
+
     return (
-        <div>
-            <h1>Chatbot</h1>
-            <div>
+        <div className="chat-container">
+            <h1 className="chat-header">Chatbot</h1>
+            <div className="chat-window">
                 {messages.map((msg, index) => (
-                    <p key={index}>
-                        <strong>{msg.user}:</strong> {msg.message}
-                    </p>
+                    <div
+                        key={index}
+                        className={`chat-message ${msg.user === 'User' ? 'user-message' : 'bot-message'}`}
+                    >
+                        <div className="message-text">{msg.message}</div>
+                    </div>
                 ))}
+                <div ref={chatEndRef} />
             </div>
-            <input
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Type a message"
-            />
-            <button onClick={sendMessage}>Send</button>
+            <div className="chat-input-container">
+                <input
+                    className="chat-input"
+                    type="text"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Type a message..."
+                    onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                />
+                <button className="send-button" onClick={sendMessage}>
+                    Send
+                </button>
+            </div>
         </div>
     );
 };
