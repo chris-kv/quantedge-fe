@@ -1,4 +1,3 @@
-import React from "react";
 import TextBox from "../TextBox/TextBox";
 
 const ChatLanding = () => {

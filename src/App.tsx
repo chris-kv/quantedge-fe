@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./component/Header/header";
 import ChatMain from "./page/ChatMain/ChatMain";
@@ -5,6 +6,7 @@ import Stratergy from "./page/Stratergy/Stratergy";
 import { RecoilRoot } from "recoil";
 
 function App() {
+  const [isStratergy, setIsStratergy] = useState(false);
   return (
     <>
     <RecoilRoot>
@@ -12,8 +14,7 @@ function App() {
         <div>
           <Header />
           <div className="bg-[#0f0f11] ">
-            {/* <Stratergy /> */}
-            <ChatMain />
+            {isStratergy ? <Stratergy /> : <ChatMain />}
           </div>
         </div>
       </section>

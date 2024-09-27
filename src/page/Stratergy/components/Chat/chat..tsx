@@ -1,4 +1,3 @@
-import { Lightbulb021 } from "../../../../assets/icons/Lightbulb021";
 import { ArrowNarrowRight1 } from "../../../../assets/icons/ArrowNarrowRight1";
 import cx from "classnames";
 
