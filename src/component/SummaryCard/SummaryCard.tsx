@@ -5,7 +5,7 @@ interface Props {
   title: string;
   values: {
     title: string;
-    value: string;
+    value: string | JSX.Element;
     hasError?: boolean;
   }[];
 }
