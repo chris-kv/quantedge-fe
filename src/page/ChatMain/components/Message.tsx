@@ -5,7 +5,7 @@ interface Props {
   message: string;
   type: string;
 }
-const Messge: FC<Props> = ({ user, message }) => {
+const Message: FC<Props> = ({ user, message, type }) => {
   return (
     <div className="flex mb-8">
       {user === "Bot" ? (
@@ -28,4 +28,4 @@ const Messge: FC<Props> = ({ user, message }) => {
   );
 };
 
-export default Messge;
+export default Message;
