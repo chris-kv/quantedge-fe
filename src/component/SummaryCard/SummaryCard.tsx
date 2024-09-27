@@ -30,7 +30,10 @@ const SummaryCard: FC<Props> = ({ iconPath, title, values }) => {
       <div className="grid grid-cols-3 gap-4 p-4">
         {values.map((value, index) => {
           return (
-            <div className="flex flex-col items-start gap-1 relative flex-1 grow">
+            <div
+              className="flex flex-col items-start gap-1 relative flex-1 grow"
+              key={index}
+            >
               <div className="relative w-[215px] mt-[-1.00px] mr-[-13.33px] [font-family:'Inter',Helvetica] font-normal text-[#959597] text-base tracking-[0] leading-[28.8px]">
                 {value.title}
               </div>

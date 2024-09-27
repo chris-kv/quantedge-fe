@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 interface Props {
   user: string;
   message: string;
   type: string;
 }
-const Messge: FC<Props> = ({ user, message, type }) => {
+const Messge: FC<Props> = ({ user, message }) => {
   return (
     <div className="flex mb-8">
       {user === "Bot" ? (

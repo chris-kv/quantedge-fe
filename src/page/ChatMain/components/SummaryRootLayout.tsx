@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import SummaryCard from "../../../component/SummaryCard/SummaryCard";
 import Button from "../../../component/Button/Button";
 import cx from "classnames";
@@ -218,7 +218,7 @@ const SummaryRootLayout = () => {
       </div>
       {selectedOption === "SUMMARY" ? (
         <div>
-          {summaryData.map((data, index) => {
+          {summaryData.map((data) => {
             return (
               <SummaryCard
                 key={data.title}
@@ -231,7 +231,7 @@ const SummaryRootLayout = () => {
         </div>
       ) : (
         <div>
-          {BackTestSampleData.map((data, index) => {
+          {BackTestSampleData.map((data) => {
             return (
               <SummaryCard
                 key={data.title}

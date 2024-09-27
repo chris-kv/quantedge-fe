@@ -1,4 +1,3 @@
-import React from "react";
 import TextBox from "../../../component/TextBox/TextBox";
 import Messge from "./Messge";
 
