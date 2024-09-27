@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 interface Props {
-  clasNames: string;
-  background: string;
+  clasNames?: string;
+  background?: string;
 }
 const TextBox: FC<Props> = ({
   clasNames = "w-full h-full",

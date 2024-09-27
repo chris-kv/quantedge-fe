@@ -1,4 +1,5 @@
 import Chat from "./components/Chat";
+import SummaryRootLayout from "./components/SummaryRootLayout";
 
 const ChatMain = () => {
   return (
@@ -6,7 +7,9 @@ const ChatMain = () => {
       <div className=" bg-[#101011] text-white">
         <Chat />
       </div>
-      <div className="bg-[#101011] p-4">Section 2</div>
+      <div className="">
+        <SummaryRootLayout />
+      </div>
     </section>
   );
 };

@@ -19,7 +19,7 @@ const ChatLanding = () => {
           </p>
         </div>
         <div className="flex-1 mt-40 ">
-          <TextBox />
+          <TextBox clasNames={""} background={""} />
         </div>
       </div>
     </section>

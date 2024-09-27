@@ -147,7 +147,7 @@ const Chat = () => {
     },
   ];
   return (
-    <div className="flex flex-col w-full h-[85vh]">
+    <div className="flex flex-col w-full h-[90vh]">
       <div className="text-xs font-medium border border-solid border-[#27282D] p-4">
         Chat with AI
       </div>
