@@ -150,8 +150,8 @@ const Chat = () => {
 
   return (
     <div className="relative  bg-[#101011]">
-      <div className=" w-[691px] h-full left-0">
-        <div className="flex flex-col w-[691px]  h-[70vh] items-end gap-[25px] pt-8 pb-14 px-14 overflow-auto">
+      <div className=" w-full h-full left-0">
+        <div className="flex flex-col w-full  h-[70vh] items-end gap-[25px] pt-8 pb-14 px-14 overflow-auto">
           {sampleData.map((item, index) => (
             <div
               className={cx(
