@@ -1,7 +1,7 @@
 const summarySampleData = {
   strategy_name: "Options Buying Strategy",
   asset: {
-    symbol: "NIFTY",
+    symbol: "",
     type: ["CE", "PE"],
     expiry: {
       cycle: "current",

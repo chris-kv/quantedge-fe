@@ -10,17 +10,11 @@ const Messge: FC<Props> = ({ user, message }) => {
     <div className="flex mb-8">
       {user === "Bot" ? (
         <div>
-          <img
-            src="src/assets/icons/QuantEdge Keycode Frame.png"
-            className="w-8 h-8"
-          />
+          <img src="icons/QuantEdge Keycode Frame.png" className="w-8 h-8" />
         </div>
       ) : (
         <div>
-          <img
-            src="src/assets/icons/QuantEdge Keycode.png"
-            className="w-8 h-8"
-          />
+          <img src="icons/QuantEdge Keycode.png" className="w-8 h-8" />
         </div>
       )}
       <div className="ml-6 text-base font-light">{message}</div>

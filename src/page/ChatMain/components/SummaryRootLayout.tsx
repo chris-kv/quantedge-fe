@@ -29,7 +29,7 @@ const SummaryRootLayout = () => {
   const summary = statergySummaryData?.results?.summary;
   const BackTestSampleData = [
     {
-      iconPath: "src/assets/icons/QuantEdge Keycode (3).png",
+      iconPath: "icons/QuantEdge Keycode (3).png",
       title: "Overview",
       values: [
         {
@@ -101,7 +101,7 @@ const SummaryRootLayout = () => {
     const statergySummaryData = summarySampleData;
     return [
       {
-        iconPath: "src/assets/icons/QuantEdge Keycode (1).png",
+        iconPath: "icons/QuantEdge Keycode (1).png",
         title: "Asset",
         values: [
           { title: "Segment", value: "Options" },
@@ -128,7 +128,7 @@ const SummaryRootLayout = () => {
         ],
       },
       {
-        iconPath: "src/assets/icons/QuantEdge Keycode Login.png",
+        iconPath: "icons/QuantEdge Keycode Login.png",
         title: "Entry condition",
         values: [
           {
@@ -150,7 +150,7 @@ const SummaryRootLayout = () => {
         ],
       },
       {
-        iconPath: "src/assets/icons/QuantEdge Keycode logout.png",
+        iconPath: "icons/QuantEdge Keycode logout.png",
         title: "Exit condition",
         values: [
           {

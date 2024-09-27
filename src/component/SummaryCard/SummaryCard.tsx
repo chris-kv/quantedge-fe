@@ -23,7 +23,7 @@ const SummaryCard: FC<Props> = ({ iconPath, title, values }) => {
           <img
             className="relative w-8 h-3.5 object-cover"
             alt="Loader"
-            src="src/assets/img/loader-1.gif"
+            src="img/loader-1.gif"
           />
         </div>
       </div>
@@ -34,8 +34,11 @@ const SummaryCard: FC<Props> = ({ iconPath, title, values }) => {
               className="flex flex-col items-start gap-1 relative flex-1 grow"
               key={index}
             >
-              <div className="relative w-[215px] mt-[-1.00px] mr-[-13.33px] [font-family:'Inter',Helvetica] font-normal text-[#959597] text-base tracking-[0] leading-[28.8px]">
+              <div className="relative w-[215px] mt-[-1.00px] mr-[-13.33px] [font-family:'Inter',Helvetica] font-normal text-[#959597] text-base tracking-[0] leading-[28.8px] flex items-center">
                 {value.title}
+                {value.value === "--" ? (
+                  <img src="icons/error.png" className="w-3 h-3 ml-1" />
+                ) : null}
               </div>
               <div className="relative self-stretch h-[29px] [font-family:'Inter',Helvetica] font-normal text-[#e3e4e5] text-base tracking-[0] leading-[28.8px] whitespace-nowrap">
                 {value.value}

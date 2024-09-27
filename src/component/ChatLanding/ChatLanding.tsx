@@ -1,11 +1,15 @@
-import TextBox from "../TextBox/TextBox";
+import { FC } from "react";
+import Button from "../Button/Button";
 
-const ChatLanding = () => {
+interface Props {
+  oncClick: () => void;
+}
+const ChatLanding: FC<Props> = ({ oncClick }) => {
   return (
     <section className="text-white flex justify-center h-full">
       <div className="flex flex-col justify-center items-center h-full">
         <img
-          src="src/assets/icons/QuantEdge Keycode Frame.png"
+          src="icons/QuantEdge Keycode Frame.png"
           className="w-20 h-20 mt-14"
         />
         <div className="mt-6 text-center ">
@@ -18,7 +22,11 @@ const ChatLanding = () => {
           </p>
         </div>
         <div className="flex-1 mt-40 ">
-          <TextBox clasNames={""} background={""} />
+          <Button
+            text={"Get Started"}
+            onClick={oncClick}
+            className={"rounded-full bg-[#575BC7] px-20 py-6 text-2xl"}
+          ></Button>
         </div>
       </div>
     </section>

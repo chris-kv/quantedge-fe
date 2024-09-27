@@ -1,4 +1,3 @@
-import { ArrowNarrowRight1 } from "../../../../assets/icons/ArrowNarrowRight1";
 import cx from "classnames";
 
 // Chat component
@@ -151,7 +150,7 @@ const Chat = () => {
     <div className="relative  bg-[#101011]">
       <div className=" w-full h-full left-0">
         <div className="flex flex-col w-full  h-[70vh] items-end gap-[25px] pt-8 pb-14 px-14 overflow-auto">
-          {sampleData.map((item, index) => (
+          {sampleData.map((item) => (
             <div
               className={cx(
                 "flex items-start gap-6 relative self-stretch w-full flex-[0_0_auto] "
@@ -187,9 +186,14 @@ const Chat = () => {
               />
               {/* <p className="flex-1 self-stretch font-[number:var(--text-md-regular-font-weight)] text-[#959597] text-[length:var(--text-md-regular-font-size)] leading-[var(--text-md-regular-line-height)] relative mt-[-1.00px] font-text-md-regular tracking-[var(--text-md-regular-letter-spacing)] [font-style:var(--text-md-regular-font-style)]"></p> */}
               <div className="inline-flex items-center gap-2.5 p-3 relative flex-[0_0_auto] bg-[#25272f] rounded-[52px]">
-                <ArrowNarrowRight1
+                {/* <ArrowNarrowRight1
                   className="!relative !w-6 !h-6"
                   color="#959597"
+                /> */}
+                <img
+                  src="icons/QuantEdge Vector.png"
+                  alt="Arrow"
+                  className="w-6 h-6"
                 />
               </div>
             </div>

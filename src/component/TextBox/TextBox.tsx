@@ -20,10 +20,7 @@ const TextBox: FC<Props> = ({
       <button
         className={`flex  justify-center items-center m-4 p-3  rounded-full bg-[#575BC7] ${clasNames}`}
       >
-        <img
-          src="src/assets/icons/QuantEdge Keycode Send.png"
-          className="w-6 h-6"
-        />
+        <img src="icons/QuantEdge Keycode Send.png" className="w-6 h-6" />
       </button>
     </div>
   );

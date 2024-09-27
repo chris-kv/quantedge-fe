@@ -1,9 +1,13 @@
+import { FC } from "react";
 import ChatLanding from "../../component/ChatLanding/ChatLanding";
 
-const Stratergy = () => {
+interface Props {
+  oncClick: () => void;
+}
+const Stratergy: FC<Props> = ({ oncClick }) => {
   return (
     <div className="bg-[#0f0f11] h-screen">
-      <ChatLanding />
+      <ChatLanding oncClick={oncClick} />
     </div>
   );
 };
