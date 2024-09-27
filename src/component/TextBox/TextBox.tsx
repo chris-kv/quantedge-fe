@@ -8,9 +8,8 @@ interface Props {
 const TextBox: FC<Props> = ({
   clasNames = "w-full h-full",
   background = "27282D",
-  handleSubmit
+  handleSubmit,
 }) => {
-
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,14 +26,18 @@ const TextBox: FC<Props> = ({
         placeholder="Chat with AI..."
         onChange={handleChange}
         onKeyDown={(e) => {
-          if (e.key === 'Enter') {
+          if (e.key === "Enter") {
             handleSubmit(inputValue);
+            setInputValue("");
           }
         }}
       />
       <button
         className={`flex justify-center items-center m-4 p-3  rounded-full bg-[#575BC7] ${clasNames}`}
-        onClick={() => handleSubmit(inputValue)}
+        onClick={() => {
+          handleSubmit(inputValue);
+          setInputValue("");
+        }}
       >
         <img
           src="src/assets/icons/QuantEdge Keycode Send.png"

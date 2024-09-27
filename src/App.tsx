@@ -2,10 +2,12 @@ import "./App.css";
 import Header from "./component/Header/header";
 import ChatMain from "./page/ChatMain/ChatMain";
 import Stratergy from "./page/Stratergy/Stratergy";
+import { RecoilRoot } from "recoil";
 
 function App() {
   return (
     <>
+    <RecoilRoot>
       <section className="bg-[#090909] h-screen">
         <div>
           <Header />
@@ -15,6 +17,7 @@ function App() {
           </div>
         </div>
       </section>
+    </RecoilRoot>
     </>
   );
 }
