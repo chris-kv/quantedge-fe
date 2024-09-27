@@ -11,9 +11,11 @@ interface Props {
 }
 const SummaryCard: FC<Props> = ({ iconPath, title, values }) => {
   return (
-    <div className="bg-[#101011] p-6 mb-6 rounded-xl">
+    <div className="bg-[#18181b] p-6 mb-6 rounded-xl">
       <div className="flex items-center gap-3 relative self-stretch w-full flex-[0_0_auto]  border-b pb-4 mb-4 border-[#27282D]">
-        <img className="relative flex-[0_0_auto]" alt="Frame" src={iconPath} />
+        <div className="w-9 h-9 bg-[#303239] flex justify-center items-center rounded-xl">
+          <img className="relative w-5 h-5" alt="Frame" src={iconPath} />
+        </div>
         <div className="flex items-center gap-1 relative flex-1 grow">
           <div className="relative flex-1 font-semibold text-[#e3e4e5] text-lg tracking-[0] leading-[23.4px]">
             {title}

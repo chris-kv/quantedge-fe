@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import SummaryCard from "../../../component/SummaryCard/SummaryCard";
+import Button from "../../../component/Button/Button";
+import cx from "classnames";
 
 const summarySampleData = [
   {
@@ -33,18 +35,44 @@ const summarySampleData = [
   },
 ];
 const SummaryRootLayout = () => {
+  const [selectedOption, setSelectedOption] = useState("SUMMARY");
   return (
     <div>
-      {summarySampleData.map((data, index) => {
-        return (
-          <SummaryCard
-            key={index}
-            iconPath={data.iconPath}
-            title={data.title}
-            values={data.values}
-          />
-        );
-      })}
+      <div className="mb-6">
+        <Button
+          text={"Summary"}
+          onClick={() => setSelectedOption("SUMMARY")}
+          className={cx("text-white px-3 py-2", {
+            " bg-[#303239]  font-semibold": selectedOption === "SUMMARY",
+            " py-2 font-normal": selectedOption !== "SUMMARY",
+          })}
+        ></Button>
+        <Button
+          text={"Back test result"}
+          onClick={() => setSelectedOption("BACK_TEST")}
+          className={cx("ml-4 px-3 py-2", {
+            "text-white bg-[#303239]  font-semibold":
+              selectedOption !== "SUMMARY",
+            "text-white py-2 font-normal": selectedOption === "SUMMARY",
+          })}
+        ></Button>
+      </div>
+      {selectedOption === "SUMMARY" ? (
+        <div>
+          {summarySampleData.map((data, index) => {
+            return (
+              <SummaryCard
+                key={index}
+                iconPath={data.iconPath}
+                title={data.title}
+                values={data.values}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

@@ -3,9 +3,14 @@ import React, { FC } from "react";
 interface Props {
   text: string;
   className: string;
+  onClick?: () => void;
 }
-const Button: FC<Props> = ({ text, className }) => {
-  return <button className={`rounded-xl ${className}`}>{text}</button>;
+const Button: FC<Props> = ({ text, className, onClick }) => {
+  return (
+    <button className={`rounded-xl ${className}`} onClick={onClick}>
+      {text}
+    </button>
+  );
 };
 
 export default Button;
