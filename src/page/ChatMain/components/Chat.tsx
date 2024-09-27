@@ -8,8 +8,8 @@ import { chatHistoryAtom } from "../../../atoms";
 import { useRecoilState } from "recoil";
 
 const Chat = () => {
-  const socket = io(VITE_SOCKET_URL);
 
+  const socket = React.useMemo(() => io(VITE_SOCKET_URL), []);
   const [chatList, setChatList] = useRecoilState(chatHistoryAtom);
   const handleSubmit = (message: string) => {
     console.log("Message is: ", message);
@@ -28,11 +28,19 @@ const Chat = () => {
   useEffect(() => {
     // Listen for messages from the backend
     socket.on("receive-message", (data) => {
+      console.log('RECEIVED MESSAGE', data);
       // Add the backend's response to the chat
-      setChatList((prevMessages) => [...prevMessages, data]);
+      setChatList((prevMessages) => [...prevMessages, 
+        {
+          type: "text",
+          content: data.message,
+          author: "Bot",
+        }
+      ]);
     });
 
     return () => {
+      console.log('DISCONNECTING');
       socket.off("receive-message");
     };
   }, []);
