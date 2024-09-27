@@ -1,14 +1,14 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Stratergy from "./page/Stratergy/Stratergy";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div className="text-red-200">Hell Quant Edge</div>
+      <section>
+        <div>
+          <Stratergy />
+        </div>
+      </section>
     </>
   );
 }
