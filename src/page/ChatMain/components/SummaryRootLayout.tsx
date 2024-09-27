@@ -148,8 +148,28 @@ const SummaryRootLayout = () => {
             title: "Universal exit time",
             value: formatSummaryData(summarySampleData?.exit_time),
           },
-          { title: "Stop loss", value: "100%" },
-          { title: "Target", value: "100%" },
+          {
+            title: "Stop loss",
+            value: formatSummaryData(
+              `${summarySampleData?.risk_management?.stop_loss?.value} ${
+                summarySampleData?.risk_management?.stop_loss?.type ===
+                "percentage"
+                  ? "%"
+                  : "INR"
+              }`
+            ),
+          },
+          {
+            title: "Target",
+            value: formatSummaryData(
+              `${summarySampleData?.risk_management?.take_profit?.value} ${
+                summarySampleData?.risk_management?.take_profit?.type ===
+                "percentage"
+                  ? "%"
+                  : "INR"
+              }`
+            ),
+          },
         ],
       },
     ];
