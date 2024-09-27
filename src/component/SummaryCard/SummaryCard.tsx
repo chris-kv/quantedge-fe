@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useRecoilState } from "recoil";
+import { loadingAtom } from "../../atoms";
 
 interface Props {
   iconPath: string;
@@ -10,6 +12,8 @@ interface Props {
   }[];
 }
 const SummaryCard: FC<Props> = ({ iconPath, title, values }) => {
+  const [loading] = useRecoilState(loadingAtom);
+
   return (
     <div className="bg-[#18181b] p-6 mb-6 rounded-xl">
       <div className="flex items-center gap-3 relative self-stretch w-full flex-[0_0_auto]  border-b pb-4 mb-4 border-[#27282D]">
@@ -20,7 +24,7 @@ const SummaryCard: FC<Props> = ({ iconPath, title, values }) => {
           <div className="relative flex-1 font-semibold text-[#e3e4e5] text-lg tracking-[0] leading-[23.4px]">
             {title}
           </div>
-          <img
+          {loading && <img
             className="relative w-8 h-3.5 object-cover"
             alt="Loader"
             src="img/loader-1.gif"

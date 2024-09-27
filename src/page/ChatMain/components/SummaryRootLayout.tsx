@@ -7,6 +7,8 @@ import {
   getBackTestDataWithChart,
 } from "../../../util/service";
 import { summarySampleData } from "./sampleData";
+import { useRecoilState } from "recoil";
+import { summaryAtom } from "../../../atoms";
 
 const fotmatValue = (value: number) => {
   if (value) {
@@ -25,6 +27,7 @@ const formatSummaryData = (data: any) => {
 const SummaryRootLayout = () => {
   const [selectedOption, setSelectedOption] = useState("SUMMARY");
   const [statergySummaryData, setsummaryData] = useState<any>();
+  const [strategyDetails] = useRecoilState(summaryAtom);
 
   const summary = statergySummaryData?.results?.summary;
   const BackTestSampleData = [
@@ -98,7 +101,7 @@ const SummaryRootLayout = () => {
   ];
 
   const summaryData = useMemo(() => {
-    const statergySummaryData = summarySampleData;
+    const statergySummaryData = strategyDetails;
     return [
       {
         iconPath: "icons/QuantEdge Keycode (1).png",
@@ -182,7 +185,7 @@ const SummaryRootLayout = () => {
         ],
       },
     ];
-  }, [summarySampleData]);
+  }, [strategyDetails]);
 
   useEffect(() => {
     if (selectedOption !== "SUMMARY") {

@@ -1,22 +1,22 @@
 const summarySampleData = {
-  strategy_name: "Options Buying Strategy",
+  strategy_name: null,
   asset: {
     symbol: "",
     type: ["CE", "PE"],
     expiry: {
-      cycle: "current",
-      frequency: "weekly",
+      cycle: "weekly",
+      frequency: "monthly",
     },
   },
   entry_trigger: {
     type: "time",
-    value: "1015",
+    value: "1045",
   },
   contract_value: {
-    type: "BETWEEN",
-    value: [1.5, 2.5],
+    type: "between",
+    value: [2, 5],
   },
-  lot_size: 2,
+  lot_size: null,
   risk_management: {
     stop_loss: {
       type: "percentage",
@@ -27,10 +27,10 @@ const summarySampleData = {
       value: 100,
     },
   },
-  exit_time: "15:30",
+  exit_time: "1515",
   actions: {
-    entry: "buy",
-    exit: "sell",
+    entry: "sell",
+    exit: "buy",
   },
 };
 
