@@ -24,11 +24,13 @@ const SummaryCard: FC<Props> = ({ iconPath, title, values }) => {
           <div className="relative flex-1 font-semibold text-[#e3e4e5] text-lg tracking-[0] leading-[23.4px]">
             {title}
           </div>
-          {loading && <img
-            className="relative w-8 h-3.5 object-cover"
-            alt="Loader"
-            src="img/loader-1.gif"
-          />
+          {loading && (
+            <img
+              className="relative w-8 h-3.5 object-cover"
+              alt="Loader"
+              src="img/loader-1.gif"
+            />
+          )}
         </div>
       </div>
       <div className="grid grid-cols-3 gap-4 p-4">
