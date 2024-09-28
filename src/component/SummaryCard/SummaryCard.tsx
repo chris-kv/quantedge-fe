@@ -27,16 +27,16 @@ const SummaryCard: FC<Props> = ({ iconPath, title, values }) => {
           </div>
           {loading && (
             <img
-              className="relative w-8 h-3.5 object-cover"
+              className="relative w-5 h-5 object-cover"
               alt="Loader"
-              src="img/loader-1.gif"
+              src="/icons/loader.png"
             />
           )}
         </div>
       </div>
       {chatList.length === 0 ? (
         <div className="flex w-full items-center justify-center mt-10">
-          <img src="icons/loader.svg" alt="No Data" className="w-8 h-8 " />
+          <img src="/icons/loader.png" alt="No Data" className="w-8 h-8 " />
         </div>
       ) : (
         <div className="grid grid-cols-3 gap-4 p-4">

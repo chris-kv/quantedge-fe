@@ -17,7 +17,7 @@ const Chat = () => {
   const handleSubmit = (message: string) => {
     console.log("Message is: ", message);
     setLoading(true);
-    setChatList((prevMessages) => [
+    setChatList((prevMessages: any) => [
       ...prevMessages,
       {
         type: "text",
@@ -41,7 +41,7 @@ const Chat = () => {
       setLoading(false);
       console.log("RECEIVED MESSAGE", data);
       // Add the backend's response to the chat
-      setChatList((prevMessages) => [
+      setChatList((prevMessages: any) => [
         ...prevMessages,
         {
           type: "text",
@@ -74,7 +74,7 @@ const Chat = () => {
         ref={chatContainerRef}
       >
         {chatList.length ? (
-          chatList.map((item) => (
+          chatList.map((item: any) => (
             <Message
               user={item.author}
               message={item.content}
@@ -82,11 +82,7 @@ const Chat = () => {
             />
           ))
         ) : (
-          <Stratergy
-            oncClick={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <Stratergy />
         )}
       </div>
       <div className="w-full bg-[#17181A ]h-10">

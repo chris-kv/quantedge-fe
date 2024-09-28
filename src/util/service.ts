@@ -3,7 +3,7 @@ import axios from "axios";
 const backTestUrl = "https://quantedge-be.onrender.com/backtest";
 const backtestDetails = "https://quantedge-be.onrender.com/backtestDetails";
 
-const submitUrl = "/create-strategy";
+const submitUrl = "https://quantedgeai.online/save-strategy";
 
 const getBackTestData = (summarySampleData: any) => {
   return axios.post(backTestUrl, {
@@ -29,12 +29,12 @@ const getBackTestDataWithChart = (id: any) => {
 const submitStratergy = (strategyDetails: any) => {
   return axios
     .post(submitUrl, {
-      data: strategyDetails,
-      title: "Stratergy",
+      data: JSON.stringify(strategyDetails),
+      title: "Strategy",
     })
-    .then(function (response) {
+    .then(function () {
       // handle success
-      console.log(response);
+      window.location.href = "https://quantedgeai.online/automated";
     })
     .catch(function (error) {
       // handle error

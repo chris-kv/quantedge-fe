@@ -139,11 +139,14 @@ const SummaryRootLayout = () => {
           },
           {
             title: "Value",
-            value: formatSummaryData(
-              statergySummaryData?.contract_value?.value?.join(
-                ` ${statergySummaryData?.contract_value?.type} `
-              )
-            ),
+            value:
+              statergySummaryData?.contract_value?.type === "between"
+                ? formatSummaryData(
+                    statergySummaryData?.contract_value?.value?.join(
+                      ` ${statergySummaryData?.contract_value?.type} `
+                    )
+                  )
+                : formatSummaryData(statergySummaryData?.contract_value?.value),
           },
           {
             title: "Lot size",
@@ -164,8 +167,8 @@ const SummaryRootLayout = () => {
             value: statergySummaryData?.risk_management?.stop_loss?.type
               ? formatSummaryData(
                   `${statergySummaryData?.risk_management?.stop_loss?.value} ${
-                    statergySummaryData?.risk_management?.stop_loss?.type ===
-                    "percentage"
+                    statergySummaryData?.risk_management?.stop_loss?.type?.toUpperCase() ===
+                    "PERCENTAGE"
                       ? "%"
                       : "INR"
                   }`
@@ -179,8 +182,8 @@ const SummaryRootLayout = () => {
                   `${
                     statergySummaryData?.risk_management?.take_profit?.value
                   } ${
-                    statergySummaryData?.risk_management?.take_profit?.type ===
-                    "percentage"
+                    statergySummaryData?.risk_management?.take_profit?.type.toUpperCase() ===
+                    "PERCENTAGE"
                       ? "%"
                       : "INR"
                   }`

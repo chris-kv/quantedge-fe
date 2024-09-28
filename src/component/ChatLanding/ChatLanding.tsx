@@ -1,10 +1,6 @@
 import { FC } from "react";
-import Button from "../Button/Button";
 
-interface Props {
-  oncClick: () => void;
-}
-const ChatLanding: FC<Props> = ({ oncClick }) => {
+const ChatLanding: FC = () => {
   return (
     <section className="text-white flex justify-center h-full">
       <div className="flex flex-col justify-center items-center h-full">

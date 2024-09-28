@@ -24,6 +24,7 @@ const Header = () => {
         <Button
           className="ml-4 bg-[#575BC7] px-6 py-1 text-sm"
           text={"Set live"}
+          onClick={handleSubmit}
         />
       </div>
     </div>

@@ -5,7 +5,7 @@ interface Props {
   message: string;
   type: string;
 }
-const Message: FC<Props> = ({ user, message, type }) => {
+const Message: FC<Props> = ({ user, message }) => {
   return (
     <div className="flex mb-8">
       {user === "Bot" ? (
