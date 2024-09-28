@@ -6,7 +6,7 @@ interface Props {
 }
 const Stratergy: FC<Props> = ({ oncClick }) => {
   return (
-    <div className="bg-[#0f0f11] h-screen">
+    <div className="bg-[#0f0f11] ">
       <ChatLanding oncClick={oncClick} />
     </div>
   );

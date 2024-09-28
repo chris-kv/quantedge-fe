@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import TextBox from "../../../component/TextBox/TextBox";
 import Message from "./Message";
-import { sampleData } from "../../../constants/mockData";
 import { io } from "socket.io-client";
 import { VITE_SOCKET_URL } from "../../../constants/env";
 import { chatHistoryAtom, loadingAtom, summaryAtom } from "../../../atoms";
 import { useRecoilState } from "recoil";
+import Stratergy from "../../Stratergy/Stratergy";
 
 const Chat = () => {
   const chatContainerRef = React.useRef<HTMLDivElement>(null);
@@ -34,9 +34,9 @@ const Chat = () => {
     socket.on("receive-message", (data) => {
       const jsonData = data?.message?.json_obj;
 
-    if (jsonData) {
-      setSummary(jsonData);
-    }
+      if (jsonData) {
+        setSummary(jsonData);
+      }
 
       setLoading(false);
       console.log("RECEIVED MESSAGE", data);
@@ -73,12 +73,28 @@ const Chat = () => {
         className="flex-1 px-14 pt-8 h-[70vh] overflow-auto"
         ref={chatContainerRef}
       >
-        {chatList.map((item) => (
-          <Message user={item.author} message={item.content} type={item.type} />
-        ))}
+        {chatList.length ? (
+          chatList.map((item) => (
+            <Message
+              user={item.author}
+              message={item.content}
+              type={item.type}
+            />
+          ))
+        ) : (
+          <Stratergy
+            oncClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+        )}
       </div>
       <div className="w-full bg-[#17181A ]h-10">
-        <TextBox handleSubmit={handleSubmit} isLoading={loading} clasNames="w-12 h-12" />
+        <TextBox
+          handleSubmit={handleSubmit}
+          isLoading={loading}
+          clasNames="w-12 h-12"
+        />
       </div>
     </div>
   );

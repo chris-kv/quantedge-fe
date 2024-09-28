@@ -1,8 +1,15 @@
+import { useRecoilValue } from "recoil";
+import { submitStratergy } from "../../util/service";
 import Button from "../Button/Button";
+import { summaryAtom } from "../../atoms";
 
 const Header = () => {
+  const strategyDetails = useRecoilValue(summaryAtom);
+  const handleSubmit = () => {
+    submitStratergy(strategyDetails);
+  };
   return (
-    <div className="flex h-16 text-white items-center justify-center px-6  bg-[#090909]">
+    <div className="flex h-16 text-white items-center justify-center px-6  bg-[#090909] border-b  border-b-[#27282D] ">
       <div className="flex  items-center justify-center">
         <img src="icons/Breadcrumb button base.png" className="w-8 h-8" />
       </div>

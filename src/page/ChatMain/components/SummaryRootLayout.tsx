@@ -6,7 +6,6 @@ import {
   getBackTestData,
   getBackTestDataWithChart,
 } from "../../../util/service";
-import { summarySampleData } from "./sampleData";
 import { useRecoilState } from "recoil";
 import { summaryAtom } from "../../../atoms";
 
@@ -101,7 +100,7 @@ const SummaryRootLayout = () => {
   ];
 
   const summaryData = useMemo(() => {
-    const statergySummaryData = strategyDetails;
+    const statergySummaryData: any = strategyDetails;
     return [
       {
         iconPath: "icons/QuantEdge Keycode (1).png",
@@ -162,25 +161,31 @@ const SummaryRootLayout = () => {
           },
           {
             title: "Stop loss",
-            value: formatSummaryData(
-              `${statergySummaryData?.risk_management?.stop_loss?.value} ${
-                statergySummaryData?.risk_management?.stop_loss?.type ===
-                "percentage"
-                  ? "%"
-                  : "INR"
-              }`
-            ),
+            value: statergySummaryData?.risk_management?.stop_loss?.type
+              ? formatSummaryData(
+                  `${statergySummaryData?.risk_management?.stop_loss?.value} ${
+                    statergySummaryData?.risk_management?.stop_loss?.type ===
+                    "percentage"
+                      ? "%"
+                      : "INR"
+                  }`
+                )
+              : "--",
           },
           {
             title: "Target",
-            value: formatSummaryData(
-              `${statergySummaryData?.risk_management?.take_profit?.value} ${
-                statergySummaryData?.risk_management?.take_profit?.type ===
-                "percentage"
-                  ? "%"
-                  : "INR"
-              }`
-            ),
+            value: statergySummaryData?.risk_management?.take_profit?.type
+              ? formatSummaryData(
+                  `${
+                    statergySummaryData?.risk_management?.take_profit?.value
+                  } ${
+                    statergySummaryData?.risk_management?.take_profit?.type ===
+                    "percentage"
+                      ? "%"
+                      : "INR"
+                  }`
+                )
+              : "--",
           },
         ],
       },
